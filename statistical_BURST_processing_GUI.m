@@ -4,6 +4,10 @@
 
 % Is your data intensity image (nonnegative real) or IQ (complex)?
 is_IQ = false; % please enter true or false
+start_high = 3; % start of high voltage 
+num_collapse = 1; % number of frames in which GV collapses
+start_backgr = 4; % frame number since which you are sure that there is no GV signal at all
+end_backgr = 102; % end of the background frames
 
 basedir = 'enter your folder/burst';
 
@@ -34,7 +38,7 @@ end
 
 image_seq(:,:,a) = image_seq;
 
-burstModeGUI(image_seq, is_IQ, 3, 1, 4, 102)
+burstModeGUI(image_seq, is_IQ, start_high, num_collapse, start_backgr, end_backgr)
 
 function burstModeGUI(image_seq_raw, is_IQ, start_high, num_collapse, start_backgr, end_backgr, varargin)
 % burstModeGUI
