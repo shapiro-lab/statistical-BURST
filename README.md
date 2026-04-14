@@ -3,7 +3,7 @@ Public repository for scripts to statistically process BURST images
 
 ## Data import
 
-The data immport section currently included in the code assumes two types of input data: intensity images (`is_IQ = false`) or beamformed IQ images (`is_IQ = true`). After setting the data type (`is_IQ`), the script reads all `.mat` files from a specified folder and assembles them into an image sequence (`image_seq`). Folder structure follows:
+The data import section currently included in the code assumes two types of input data: intensity images (`is_IQ = false`) or beamformed IQ images (`is_IQ = true`). After setting the data type (`is_IQ`), the script reads all `.mat` files from a specified folder and assembles them into an image sequence (`image_seq`). Folder structure follows:
 
 ```
 your folder/
