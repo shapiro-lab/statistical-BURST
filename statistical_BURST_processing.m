@@ -84,7 +84,7 @@ for i = 1:num_collapse
     t_map(:,:,i) = burst(:,:,i).*sqrt((size(pAM2D_z, 3)-2)./(1-burst(:,:,i).^2));
 end
 
-p = 1 - p_value/num_collapse;
+p = 1 - p_value;
 t = tinv(p, size(pAM2D_z, 3)-2);
 threshold = t/sqrt(size(pAM2D_z, 3)-2+t^2);
 
