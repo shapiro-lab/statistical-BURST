@@ -289,8 +289,8 @@ if is_IQ
 
     m = den+1;
     threshold = sqrt(2*(m+1)*(m-1)/m/(m-2)*finv(1 - p_value, 2, m-2));
-    burst_mahala = (image_seq(:,:,start_high + (0:num_collapse-1)) - mean(image_seq(:,:,start_backgr:end_backgr), 3))...
-        .*(mahala(:,:,start_high + (0:num_collapse-1))>threshold);
+    burst_mahala = sum((image_seq(:,:,start_high + (0:num_collapse-1)) - mean(image_seq(:,:,start_backgr:end_backgr), 3))...
+        .*(mahala(:,:,start_high + (0:num_collapse-1))>threshold),3);
 
     figure; subplot(1,2,1); imagesc(mahala(:,:,start_high)); axis image; title('Mahalanobis 1st frame'); colorbar; imcontrast;
     subplot(1,2,2); imagesc(burst_mahala); colormap hot; axis image; title('Mahalanobis-based'); colorbar; clim([0 max(burst_mahala(:))]); imcontrast
