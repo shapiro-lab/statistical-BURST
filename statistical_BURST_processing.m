@@ -168,10 +168,11 @@ end
 
 %% Nakagami-based BURST processing
 m = nakagami_m_image(image_seq(:,:,start_backgr:end_backgr),1000);
+m3 = repmat(m, 1, 1, max(1, num_collapse));
 
 omega = mean(image_seq(:,:,start_backgr:end_backgr).^2, 3);
 R = image_seq(:,:,start_high + (0:num_collapse-1)).^2./omega;
-p_nakagami = 1-fcdf(R, 2*m, 2*(end_backgr-start_backgr+1+num_collapse)*m);
+p_nakagami = 1-fcdf(R, 2*m3, 2*(end_backgr-start_backgr+1+num_collapse)*m3);
 burst_nakagami = sum((image_seq(:,:,start_high + (0:num_collapse-1)) - mean(image_seq(:,:,start_backgr:end_backgr), 3)).*(p_nakagami < p_value), 3);
 
 % for the intensity map, instead of F_collapse - average(F_post), you can
