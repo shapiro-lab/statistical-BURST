@@ -26,7 +26,7 @@ for i = 1:numel(fileList)
         image_seq(:,:,i) = complex(data.IQ(:,:,1), data.IQ(:,:,2)); % assuming that real and complex parts are stacked
     end
 
-    % extract the voltage value from the folder name
+    % extract the frame numbers
     alpha = regexp(fileName, '([\d.]+).mat', 'tokens');
     a(i) = str2double(alpha{1}{1});
 
